@@ -67,7 +67,8 @@ namespace HotelListing.Api.Controllers
         public ActionResult Delete(int id)
         {
             var hotel = hotels.FirstOrDefault(h => h.Id == id);
-            if(hotel == null)
+            // Check if hotel exists before attempting to delete it
+            if (hotel == null)
             {
                 return NotFound(new {message = "Hotel Not Found"});
             }
